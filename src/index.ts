@@ -5,4 +5,4 @@ import mainRouter from "./routes/router";
 
 app.use("/", mainRouter);
 
-app.listen(PORT, () => console.log("Connected"));
+app.listen(PORT, () => console.log(`listening in: http://localhost:${PORT}`));
