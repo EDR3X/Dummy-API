@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const app = express();
+const PORT = 5050;
+import mainRouter from "./routes/router";
 
-app.get("/", (_req: Request, res: Response) => {
-  res.json({ message: "Hello World" });
-});
+app.use("/", mainRouter);
 
-app.listen(3000, () => console.log("Connected"));
+app.listen(PORT, () => console.log("Connected"));
