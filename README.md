@@ -18,5 +18,18 @@
 
 ## Endpoints
 
-- `users` : `http://localhost:5050/users`
+### Resources
+
+- `user` : `http://localhost:5050/user`
 - `cars` : `http://localhost:5050/cars`
+
+### Routes
+
+- `GET` : `/user`
+- `GET` : `/user/1`
+
+- `GET` : `/cars`
+- `GET` : `/cars/sports`
+- `GET` : `/cars/super`
+- `GET` : `/cars/sports/1`
+- `GET` : `/cars/super/1`
