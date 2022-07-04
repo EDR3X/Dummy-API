@@ -6,8 +6,8 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 8000;
 
-import userRouter from "./routes/router";
+import mainRouter from "./routes/router";
 
-app.use("/", userRouter);
+app.use("/", mainRouter);
 
 app.listen(port, () => console.log(`listening in: http://localhost:${port}`));
