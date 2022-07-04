@@ -15,3 +15,8 @@
 - `cd dummy-api-for-testing`
 - `yarn`
 - `yarn dev`
+
+## Endpoints
+
+- `users` : `http://localhost:5050/users`
+- `cars` : `http://localhost:5050/cars`
