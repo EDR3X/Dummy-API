@@ -123,7 +123,7 @@ export const super_cars = [
 
 export const sports_cars = [
   {
-    id: 11,
+    id: 1,
     brand: "Pegassi",
     name: "Osiris",
     speed: 8.5,
@@ -135,7 +135,7 @@ export const sports_cars = [
       "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/e/e3/Osiris.png?width=960",
   },
   {
-    id: 12,
+    id: 2,
     brand: "Progen",
     name: "T20",
     speed: 8.5,
@@ -147,7 +147,7 @@ export const sports_cars = [
       "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/d/de/T20_002.jpg?width=960",
   },
   {
-    id: 13,
+    id: 3,
     brand: "Pegassi",
     name: "Reaper",
     speed: 8.5,
@@ -159,7 +159,7 @@ export const sports_cars = [
       "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/7/73/DLC.png?width=960",
   },
   {
-    id: 14,
+    id: 4,
     brand: "Vapid",
     name: "FMJ",
     speed: 8.5,
@@ -171,7 +171,7 @@ export const sports_cars = [
       "https://oyster.ignimgs.com/mediawiki/apis.ign.com/grand-theft-auto-5/c/cd/DLC2.png?width=960",
   },
   {
-    id: 15,
+    id: 5,
     brand: "Ocelot",
     name: "Pariah",
     speed: 8.5,
