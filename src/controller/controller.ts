@@ -16,6 +16,22 @@ const carsController = (_req: Request, res: Response) => {
   res.status(200).json({ super: super_cars, sports: sports_cars });
 };
 
+const carTypeController = (req: Request, res: Response) => {
+  const type: string = req.params.type;
+
+  try {
+    if (type === "super") {
+      res.status(200).json({ super: super_cars });
+    } else if (type === "sports") {
+      res.status(200).json({ sports: sports_cars });
+    } else {
+      res.status(404).json({ message: "Car type not found" });
+    }
+  } catch (e: any) {
+    res.status(500).json({ error: e.message });
+  }
+};
+
 const carController = (req: Request, res: Response) => {
   const type: string = req.params.type;
   const type_id: number = parseInt(req.params.id);
@@ -47,4 +63,9 @@ const carController = (req: Request, res: Response) => {
   }
 };
 
-export default { userController, carController, carsController };
+export default {
+  userController,
+  carController,
+  carsController,
+  carTypeController,
+};
