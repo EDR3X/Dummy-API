@@ -2,14 +2,26 @@ import { Request, Response } from "express";
 import { users } from "../data/usersData";
 import { super_cars, sports_cars } from "../data/carsData";
 
+const usersController = (_req: Request, res: Response) => {
+  res.status(200).json({ results: users });
+};
+
 const userController = (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
 
-  if (id && !isNaN(id)) {
-    res.json(users[id - 1]);
-  }
+  try {
+    if (id && !isNaN(id)) {
+      const user = users.find((item) => item.id === id);
 
-  res.status(200).json({ results: users });
+      if (user) {
+        res.status(200).json({ results: users });
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
+    }
+  } catch (e: any) {
+    res.status(500).json({ error: e.message });
+  }
 };
 
 const carsController = (_req: Request, res: Response) => {
@@ -64,6 +76,7 @@ const carController = (req: Request, res: Response) => {
 };
 
 export default {
+  usersController,
   userController,
   carController,
   carsController,
