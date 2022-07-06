@@ -7,20 +7,14 @@ export class CarsService {
 
   public static getCarType(type_name: string) {
     if (type_name === "super") {
-      return { super: super_cars };
+      return { results: super_cars };
     }
 
     if (type_name === "sports") {
-      return { sports: sports_cars };
+      return { results: sports_cars };
     }
-  }
 
-  public static getSupers() {
-    return { super: super_cars };
-  }
-
-  public static getSports() {
-    return { sports: sports_cars };
+    return { error: "Car type not found" };
   }
 
   public static carFind(type_name: string, type_id: number) {
@@ -29,8 +23,6 @@ export class CarsService {
 
       if (supercars) {
         return supercars;
-      } else {
-        throw new Error("Car not found");
       }
     }
 
@@ -39,9 +31,9 @@ export class CarsService {
 
       if (sportscars) {
         return sportscars;
-      } else {
-        throw new Error("Car not found");
       }
     }
+
+    return { error: "Car not found" };
   }
 }

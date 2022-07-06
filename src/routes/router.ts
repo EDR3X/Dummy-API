@@ -1,12 +1,16 @@
 import { Router } from "express";
-import controller from "../controller/controller";
 const router = Router();
 
-router.get("/user", controller.usersController);
-router.get("/user/:id", controller.userController);
+import {
+  UserRouteController,
+  CarRouteController,
+} from "../controller/controller";
 
-router.get("/cars", controller.carsController);
-router.get("/cars/:type", controller.carTypeController);
-router.get("/cars/:type/:id", controller.carController);
+router.get("/user", UserRouteController.usersController);
+router.get("/user/:id", UserRouteController.userController);
+
+router.get("/cars", CarRouteController.carsController);
+router.get("/cars/:type", CarRouteController.carTypeController);
+router.get("/cars/:type/:id", CarRouteController.carController);
 
 export default router;
