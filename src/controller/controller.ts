@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { users } from "../data/usersData";
-import { super_cars, sports_cars } from "../data/carsData";
 import { user_find } from "../services/services.user";
+import { CarsService } from "../services/services.cars";
 
 const usersController = (_req: Request, res: Response) => {
   res.status(200).json({ results: users });
@@ -14,7 +14,7 @@ const userController = (req: Request, res: Response) => {
 };
 
 const carsController = (_req: Request, res: Response) => {
-  res.status(200).json({ super: super_cars, sports: sports_cars });
+  res.status(200).json(CarsService.getAll);
 };
 
 const carTypeController = (req: Request, res: Response) => {
@@ -22,9 +22,9 @@ const carTypeController = (req: Request, res: Response) => {
 
   try {
     if (type === "super") {
-      res.status(200).json({ super: super_cars });
+      res.status(200).json(CarsService.getSupers);
     } else if (type === "sports") {
-      res.status(200).json({ sports: sports_cars });
+      res.status(200).json(CarsService.getSports);
     } else {
       res.status(404).json({ message: "Car type not found" });
     }
@@ -39,25 +39,7 @@ const carController = (req: Request, res: Response) => {
 
   try {
     if (type && type_id && !isNaN(type_id)) {
-      if (type === "super") {
-        const supercars = super_cars.find((item) => item.id === type_id);
-
-        if (supercars) {
-          res.json(supercars);
-        } else {
-          res.status(404).json({ message: "Car not found" });
-        }
-      } else if (type === "sports") {
-        const sportscars = sports_cars.find((item) => item.id === type_id);
-
-        if (sportscars) {
-          res.json(sportscars);
-        } else {
-          res.status(404).json({ message: "Car not found" });
-        }
-      } else {
-        res.status(404).json({ message: "Car type not found" });
-      }
+      CarsService.carFind(type, type_id);
     }
   } catch (e: any) {
     res.status(500).json({ error: e.message });
