@@ -3,8 +3,12 @@ import { Response } from "express";
 import { users } from "../data/usersData";
 
 export class UserService {
-  public static usersController(_req: Request, res: Response) {
-    res.status(200).json({ results: users });
+  public static getAll() {
+    return { results: users };
+  }
+
+  public static findUser(user_id: number) {
+    return users.find((item) => item.id === user_id);
   }
 }
 

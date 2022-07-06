@@ -5,6 +5,16 @@ export class CarsService {
     return { super: super_cars, sports: sports_cars };
   }
 
+  public static getCarType(type_name: string) {
+    if (type_name === "super") {
+      return { super: super_cars };
+    }
+
+    if (type_name === "sports") {
+      return { sports: sports_cars };
+    }
+  }
+
   public static getSupers() {
     return { super: super_cars };
   }
