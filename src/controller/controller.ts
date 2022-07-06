@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { users } from "../data/usersData";
 import { super_cars, sports_cars } from "../data/carsData";
+import { user_find } from "../services/services.user";
 
 const usersController = (_req: Request, res: Response) => {
   res.status(200).json({ results: users });
@@ -9,19 +10,7 @@ const usersController = (_req: Request, res: Response) => {
 const userController = (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
 
-  try {
-    if (id && !isNaN(id)) {
-      const user = users.find((item) => item.id === id);
-
-      if (user) {
-        res.status(200).json({ results: users });
-      } else {
-        res.status(404).json({ message: "User not found" });
-      }
-    }
-  } catch (e: any) {
-    res.status(500).json({ error: e.message });
-  }
+  user_find(id, res);
 };
 
 const carsController = (_req: Request, res: Response) => {
