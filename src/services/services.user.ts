@@ -1,4 +1,4 @@
-import { users } from "../data/usersData";
+import { users } from "../data/data.user";
 
 export class UserService {
   public static getAll() {

@@ -1,4 +1,4 @@
-import { super_cars, sports_cars } from "../data/carsData";
+import { super_cars, sports_cars } from "../data/data.cars";
 
 export class CarsService {
   public static getAll() {
